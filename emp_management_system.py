@@ -1,5 +1,7 @@
 attempt = 0
 filename = "Employee.txt"
+
+#                        ========== Admin Panel ===========
 while True:
     print("\n","==*=="*5+"Employee Management System"+"==*=="*5,"\n")
     print("==="*10+"Login Page"+"==="*10,"\n")
@@ -18,6 +20,9 @@ while True:
 EmployeeID = 100
 import os
 while True:
+
+#              ========== Menu Section ===========
+
     print("\n","==*=="*5+"Employee Management System"+"==*=="*5,"\n")
     print("=====***====="+"Welcome on Our Admin Panel"+"=====***=====\n")
     print("       =+=*=+=   Enter 1 View Employees    =+=*=+=")
@@ -28,6 +33,7 @@ while True:
     print("       =+=*=+=   Enter 0 Exit              =+=*=+=\n")
     print("==="*18,"\n")
 
+#              ========== Error Handling Part ===========
     try:
         choice = int(input("             Enter your Choice :      "))
     except ValueError:
@@ -36,10 +42,17 @@ while True:
         continue
     except Exception as e:
         print(e)
+        
+
+#                  ========== Case Section ===========
     match choice:
+
+#              ========== Program exit Section ===========
         case 0:
             print("Program End")
             break
+        
+#              ========== View Employees Section ===========
         case 1:
             print("\n    ==*==*==*==  Employee Data  ==*==*==*== \n")
             try:
@@ -62,7 +75,10 @@ while True:
                     print("File Created")
             except Exception as e:
                 print(e)
-            input("\n          Press Enter to Continue........")    
+            input("\n          Press Enter to Continue........")
+
+
+#              ========== Add Employee Section ===========    
         case 2:
             print("\n    ==*==*==*==  Add Employee  ==*==*==*== \n")
             try:
@@ -90,7 +106,10 @@ while True:
                 file.write(records)
                 record_exist = True
                 print("            New Record added successfully!")
-            input("\n          Press Enter to Continue........")    
+            input("\n          Press Enter to Continue........")   
+
+
+#              ========== Remove Employee Section =========== 
         case 3:
             print("\n    ==*==*==*==  Remove Employee  ==*==*==*== \n")
             Emp_ID = int(input("         Enter Employee ID :      "))
@@ -119,6 +138,9 @@ while True:
             else:
                 print("Sorry! record in not found")
             input("\n          Press Enter to Continue........")   
+
+
+ #              ========== Update Employee Section ===========
         case 4:
             print("\n    ==*==*==*==  Update Employee  ==*==*==*== \n")
             Emp_ID = int(input("            Enter Employee ID   :     "))
@@ -143,7 +165,10 @@ while True:
                     print("   Update Employee Record Successfully! ")
             else:
                 print("Sorry! This Record is Not found")
-            input("\n          Press Enter to Continue........")   
+            input("\n          Press Enter to Continue........")  
+
+
+#              ========== Employee Searching Section =========== 
         case 5:
             print("\n    ==*==*==*==  Search Employee  ==*==*==*== \n")
             Emp_ID = int(input("          Enter Employee ID   :     "))
@@ -171,7 +196,10 @@ while True:
                     print("          Employee Salary     :    ",data[4])
                     print("          Employee Email      :    ",data[5])
             input("\n          Press Enter to Continue........")  
+
+
+#              ==========Invalid Data Section ===========
         case _:
             print("Invalid Entry ")
-            input("\n          Press Enter to Continue........") 
+            input("\n          Press Enter to Continue........")
     os.system("cls")
