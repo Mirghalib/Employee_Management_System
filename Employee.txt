@@ -1,3 +1,3 @@
-101||Asadullah Ghalib||21||IT||150000||ghalib@gmail.com
-102||Naila Saleem||21||IT||140000||naila@gmail.com
-103||Irfan Haider||19||SE||120000||irfan@gmail.com
+101||Asadullah Ghalib||12||dsf||sdf||sgg
+102||Mir Ghalib||21||IT||120000||asad@gmail.com
+103||Qamar Abbas||22||IT||78000||qamar@gmail.com

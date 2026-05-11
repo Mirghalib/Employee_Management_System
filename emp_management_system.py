@@ -1,24 +1,27 @@
+import os
 attempt = 0
 filename = "Employee.txt"
 
-#                        ========== Admin Panel ===========
+#                        ========== login Panel ===========
 while True:
     print("\n","==*=="*5+"Employee Management System"+"==*=="*5,"\n")
     print("==="*10+"Login Page"+"==="*10,"\n")
     username = input("                    Enter Username    :     ").strip()
     password = input("                    Enter Password    :     ").strip()
     if username == "admin" and password == "1234":
-        print("Login Successfully!")
+        print("\n                             Login Successfully!")
         break
     else:
         print("Invalid username or password Plz try again\n")
         attempt +=1
         if  attempt >= 5:
-            print("You have no more attempts ")
+            print("Sorry! You have no more attempts.")
             exit()
 
-EmployeeID = 100
-import os
+# EmployeeID = 100
+
+#                        ========== login Panel ===========
+
 while True:
 
 #              ========== Menu Section ===========
@@ -37,7 +40,7 @@ while True:
     try:
         choice = int(input("             Enter your Choice :      "))
     except ValueError:
-        print("Invalid Error : ")
+        print("           Invalid Value : ")
         input("\n          Press Enter to Continue........")
         continue
     except Exception as e:
@@ -104,7 +107,6 @@ while True:
                     
                 records = f"{EmployeeID}||{name}||{age}||{department}||{salary}||{email}\n"
                 file.write(records)
-                record_exist = True
                 print("            New Record added successfully!")
             input("\n          Press Enter to Continue........")   
 
@@ -136,7 +138,7 @@ while True:
                         file.write(f"{new_id}||{name}||{age}||{department}||{salary}||{email}\n")
                         new_id +=1
             else:
-                print("Sorry! record in not found")
+                print("          Sorry! record in not found")
             input("\n          Press Enter to Continue........")   
 
 
@@ -162,7 +164,7 @@ while True:
             if is_found:
                 with open(filename,"w") as file:
                     file.writelines(record)
-                    print("   Update Employee Record Successfully! ")
+                    print("      Update Employee Record Successfully! ")
             else:
                 print("Sorry! This Record is Not found")
             input("\n          Press Enter to Continue........")  
@@ -172,7 +174,6 @@ while True:
         case 5:
             print("\n    ==*==*==*==  Search Employee  ==*==*==*== \n")
             Emp_ID = int(input("          Enter Employee ID   :     "))
-            print("\n","   ==*=="+f"  The Details of Employee {Emp_ID} is   "+"==*==","\n")
             emp_exist = False
             try:
                 with open(filename,"r") as file:
@@ -181,25 +182,29 @@ while True:
                         data = record.strip().split("||")
                         if int(data[0]) == Emp_ID:
                             emp_exist = True
+                    
                             break
+                    if emp_exist:
+                        print("\n","   ==*=="+f"  The Details of Employee {Emp_ID} is   "+"==*==","\n")
+                        print("          Employee ID         :    ",data[0])
+                        print("          Employee Name       :    ",data[1])
+                        print("          Employee Age        :    ",data[2])
+                        print("          Employee Department :    ",data[3])
+                        print("          Employee Salary     :    ",data[4])
+                        print("          Employee Email      :    ",data[5]) 
+                    else:
+                        print("data not found")    
             except FileNotFoundError:
                 with open(filename,"x") as file:
                     print("File Created")
             except Exception as e:
                 print(e)
-            else:
-                if emp_exist:
-                    print("          Employee ID         :    ",data[0])
-                    print("          Employee Name       :    ",data[1])
-                    print("          Employee Age        :    ",data[2])
-                    print("          Employee Department :    ",data[3])
-                    print("          Employee Salary     :    ",data[4])
-                    print("          Employee Email      :    ",data[5])
+                
             input("\n          Press Enter to Continue........")  
-
 
 #              ==========Invalid Data Section ===========
         case _:
-            print("Invalid Entry ")
+            print("            Invalid Entry ")
             input("\n          Press Enter to Continue........")
+       
     os.system("cls")
